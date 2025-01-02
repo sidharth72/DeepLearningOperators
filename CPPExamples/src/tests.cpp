@@ -12,7 +12,6 @@
 #include "ModelLoader.h"
 #include "model_tests.h"
 
-
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
@@ -32,8 +31,9 @@ void append_to_report(const json& report_data, const std::string& test_type = "l
     fs::create_directories(reports_dir);
 
     // Choose report file based on test type
-    fs::path report_file = reports_dir /  (test_type == "layer" ? "model_unittest_report.json" : "model_test_report.json");
+    fs::path report_file = reports_dir / (test_type == "layer" ? "model_unittest_report.json" : "model_test_report.json");
     std::cout << "Report file: " << report_file << std::endl;
+    
     // Read existing reports
     std::vector<json> existing_reports;
     if (fs::exists(report_file)) {
@@ -77,18 +77,16 @@ json run_layer_tests(const std::string& layer_type) {
     json report;
 
     try {
-
         std::map<std::string, TestReport> results;
 
         if (layer_type == "conv") {
             results = test_suite.test_convolution_layer();
-
         }
         else if (layer_type == "maxpool") {
             results = test_suite.test_max_pooling_layer();
         }
         else if (layer_type == "dense") {
-           results = test_suite.test_dense_layer();
+            results = test_suite.test_dense_layer();
         }
         else {
             throw std::runtime_error("Invalid layer type");
@@ -143,35 +141,39 @@ json run_layer_tests(const std::string& layer_type) {
     return report;
 }
 
-int main() {
+void print_usage() {
+    std::cout << "Usage:" << std::endl;
+    std::cout << "For layer tests: tests.exe L <layer_type>" << std::endl;
+    std::cout << "  where <layer_type> can be conv, maxpool, or dense" << std::endl;
+    std::cout << "For model tests: tests.exe M <image_path>" << std::endl;
+    std::cout << "  where <image_path> is the path to the input image" << std::endl;
+}
+
+// main function that accepts an image path as an argument and processes it
+
+int main(int argc, char* argv[]) {
     try {
-        std::string test_type;
-        std::cout << "Enter test type: Type 'L' for Layer wise tests, 'M' for Model wise tests: ";
-        std::cin >> test_type;
+        if (argc < 3) {
+            print_usage();
+            return 1;
+        }
 
+        std::string test_type = argv[1];
+        
         if (test_type == "L") {
-            std::string layer_type;
-            std::cout << "Enter layer type (conv/maxpool/dense): ";
-            std::cin >> layer_type;
-
+            std::string layer_type = argv[2];
+            if (layer_type != "conv" && layer_type != "maxpool" && layer_type != "dense") {
+                std::cout << "Invalid layer type. Must be conv, maxpool, or dense." << std::endl;
+                return 1;
+            }
+            
             json report = run_layer_tests(layer_type);
             append_to_report(report);
         }
         else if (test_type == "M") {
+            std::string image_path = argv[2];
+            
             try {
-                // Get image path from user
-                std::string image_path;
-                std::cout << "Enter image path: (path/to/image.jpg) ";
-                std::cin >> image_path;
-
-                // Get expected class label
-                std::cout << "\nAvailable classes:\n"
-                        << "airplane, automobile, bird, cat, deer,\n"
-                        << "dog, frog, horse, ship, truck\n\n"
-                        << "Enter expected class label: ";
-                std::string class_label;
-                std::cin >> class_label;
-
                 // Load configuration
                 std::string config_path = "../config/network_config.json";
                 json config = ModelLoader::load_config(config_path);
@@ -182,23 +184,30 @@ int main() {
                 std::string base_weights_dir = global_settings["base_weights_directory"];
                 std::vector<std::string> class_names = ModelLoader::get_class_names(global_settings);
 
-                // Find expected label index
-                auto it = std::find(class_names.begin(), class_names.end(), class_label);
-                if (it == class_names.end()) {
-                    throw std::runtime_error("Invalid class label: " + class_label);
+                // Print available classes and get expected class
+                std::cout << "\nAvailable classes:" << std::endl;
+                for (size_t i = 0; i < class_names.size(); ++i) {
+                    std::cout << i << ": " << class_names[i] << std::endl;
                 }
-                size_t expected_label = std::distance(class_names.begin(), it);
+                
+                std::cout << "\nEnter the expected class number: ";
+                size_t expected_label;
+                std::cin >> expected_label;
+                
+                if (expected_label >= class_names.size()) {
+                    throw std::runtime_error("Invalid class number");
+                }
 
                 // Preprocess input image
                 auto input_data = ModelLoader::preprocess_image(image_path, global_settings);
 
-                // Load model layers (using the second  model with 3x3 filters and 128 dense layer)
+                // Load model layers (using the second model with 3x3 filters and 128 dense layer)
                 auto layers = ModelLoader::load_model_layers(models_config[1], base_weights_dir);
-                
 
                 for (const auto& layer_info : layers) {
                     std::cout << "Layer: " << layer_info.name << std::endl;
                 }
+
                 // Convert layers to format expected by test_model_layers
                 std::vector<std::pair<std::string, std::shared_ptr<void>>> layer_pairs;
                 for (const auto& layer_info : layers) {
@@ -238,7 +247,8 @@ int main() {
             }
         }
         else {
-            std::cout << "Invalid test type" << std::endl;
+            std::cout << "Invalid test type. Must be 'L' or 'M'." << std::endl;
+            print_usage();
             return 1;
         }
 

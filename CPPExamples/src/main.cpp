@@ -109,7 +109,13 @@ Prediction ensemble_predictions(const std::vector<Prediction>& predictions,
     };
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        std::cout << "Usage: " << argv[0] << " <image_path>" << std::endl;
+        return 1;
+    }
+    const char* imagePath = argv[1];
+
     try {
         // Load configuration
         std::string config_path = "../config/network_config.json";
@@ -122,8 +128,7 @@ int main() {
         std::vector<std::string> class_names = ModelLoader::get_class_names(global_settings);
         
         // Load and preprocess image
-        std::string image_path = "../data/inputs/deer.jpg";
-        auto input_data = ModelLoader::preprocess_image(image_path, global_settings);
+        auto input_data = ModelLoader::preprocess_image(imagePath, global_settings);
         
         // Process all models
         std::vector<Prediction> predictions;
