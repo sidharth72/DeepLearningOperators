@@ -56,8 +56,8 @@ This repository showcases Convolutional Neural Network models built from scratch
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/sidharth72/CNN-Operators.git
-   cd CNNOperators
+   git clone https://github.com/sidharth72/CNN-Operators.git](https://github.com/sidharth72/DeepLearningOperators.git
+   cd DeepLearningOperators
    ```
 
 2. **Install CMake:**
@@ -104,8 +104,8 @@ This repository showcases Convolutional Neural Network models built from scratch
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/sidharth72/CNN-Operators.git
-   cd CNNOperators
+   git clone https://github.com/sidharth72/DeepLearningOperators.git
+   cd DeepLearningOperators
    ```
 
 2. **Install Python dependencies:**
