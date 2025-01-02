@@ -1,4 +1,4 @@
-# CNNOperators
+# Convolutional Neural Network Layer by Layer Operators From Scratch
 
 This repository showcases Convolutional Neural Network models built from scratch in C++ and Python, trained on CIFAR-10. It focuses on understanding the core workings, layer-by-layer transformations, different operations, and how these models make predictions. The work also uses ONNX runtime to effectively inference the model.
 
@@ -85,13 +85,19 @@ This repository showcases Convolutional Neural Network models built from scratch
 6. **Install required libraries using vcpkg:**
 
    ```bash
-   ./vcpkg install opencv nlohmann-json xtensor xtensor-blas onnxruntime
+   ./vcpkg install opencv nlohmann-json xtensor xtensor-blas
    ```
 
-7. **Organize External Dependencies:**
+7. **Install ONNX Runtime Manually:**
 
-   - Create a folder named `external` in the `CPPExamples` directory.
-   - Move all dependency folders installed by vcpkg into this folder.
+   - Download ONNX Runtime from the official website: [ONNX Runtime Downloads](https://onnxruntime.ai/).
+   - Extract the downloaded files.
+   - Move the extracted files into the `<base_path>\vcpkg\installed\x64-windows\include` directory.
+   - Rename the folder to `onnxruntime`.
+
+8. **Organize External Dependencies:**
+
+   - Ensure all dependencies (`xtensor`, `xtensor-blas`, `nlohmann-json`, `opencv`, and `onnxruntime`) are correctly stored in `<base_path>\vcpkg\installed\x64-windows\include`.
 
 ### Python Installation
 
@@ -157,7 +163,7 @@ After building the project, you can run the executables located in the `build/Re
 
   ```bash
   cd build
-  Release/onnx_inference.exe
+  Release/onnx_inference.exe path/to/image
   ```
 
 - **Tests:** Runs the model unit and architecture tests.
