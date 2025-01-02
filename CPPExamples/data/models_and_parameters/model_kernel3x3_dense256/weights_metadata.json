@@ -1,0 +1,73 @@
+[
+  {
+    "layer_name": "Conv1",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      3,
+      32
+    ],
+    "bias_shape": [
+      32
+    ],
+    "kernel_file": "Conv1_filters.npy",
+    "bias_file": "Conv1_biases.npy"
+  },
+  {
+    "layer_name": "Conv3",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      32,
+      64
+    ],
+    "bias_shape": [
+      64
+    ],
+    "kernel_file": "Conv3_filters.npy",
+    "bias_file": "Conv3_biases.npy"
+  },
+  {
+    "layer_name": "Conv5",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      64,
+      64
+    ],
+    "bias_shape": [
+      64
+    ],
+    "kernel_file": "Conv5_filters.npy",
+    "bias_file": "Conv5_biases.npy"
+  },
+  {
+    "layer_name": "Dense8",
+    "type": "Dense",
+    "weights_shape": [
+      1024,
+      256
+    ],
+    "bias_shape": [
+      256
+    ],
+    "weights_file": "Dense8_weights.npy",
+    "bias_file": "Dense8_biases.npy"
+  },
+  {
+    "layer_name": "OutputLayer",
+    "type": "Dense",
+    "weights_shape": [
+      256,
+      10
+    ],
+    "bias_shape": [
+      10
+    ],
+    "weights_file": "OutputLayer_weights.npy",
+    "bias_file": "OutputLayer_biases.npy"
+  }
+]

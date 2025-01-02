@@ -1,0 +1,493 @@
+{
+    "global_settings": {
+        "input_shape": [1, 32, 32, 3],
+        "classes": [
+            "airplane",
+            "automobile",
+            "bird",
+            "cat",
+            "deer",
+            "dog",
+            "frog",
+            "horse",
+            "ship",
+            "truck"
+        ],
+        "base_weights_directory": "../data/models_and_parameters",
+        "preprocessing": {
+            "input_size": [32, 32],
+            "normalization": {
+                "type": "divide",
+                "value": 255.0
+            }
+        }
+    },
+    "models": [
+        {
+            "model_name": "model_kernel3x3_dense64",
+            "model_directory": "model_kernel3x3_dense64",
+            "layers": [
+                {
+                    "name": "conv1",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv1_filters.npy",
+                        "biases": "Conv1_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool1",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv2",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv3_filters.npy",
+                        "biases": "Conv3_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool2",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv3",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv5_filters.npy",
+                        "biases": "Conv5_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+
+                },
+                {
+                    "name": "maxpool3",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                }
+                ,
+                {
+                    "name": "flatten",
+                    "type": "flatten"
+                },
+                {
+                    "name": "dense1",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "Dense7_weights.npy",
+                        "biases": "Dense7_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "output",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "OutputLayer_weights.npy",
+                        "biases": "OutputLayer_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "softmax"
+                    }
+                }
+            ]
+        },
+        {
+            "model_name": "model_kernel3x3_dense128",
+            "model_directory": "model_kernel3x3_dense128",
+            "layers": [
+
+                {
+                    "name": "conv1",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv1_filters.npy",
+                        "biases": "Conv1_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool1",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv2",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv3_filters.npy",
+                        "biases": "Conv3_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool2",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv3",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv5_filters.npy",
+                        "biases": "Conv5_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool3",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "flatten",
+                    "type": "flatten"
+                },
+                {
+                    "name": "dense1",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "Dense8_weights.npy",
+                        "biases": "Dense8_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "output",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "OutputLayer_weights.npy",
+                        "biases": "OutputLayer_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "softmax"
+                    }
+                }
+
+            ]
+        },
+        {
+            "model_name": "model_kernel3x3_dense256",
+            "model_directory": "model_kernel3x3_dense256",
+            "layers": [
+                {
+                    "name": "conv1",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv1_filters.npy",
+                        "biases": "Conv1_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool1",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv2",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv3_filters.npy",
+                        "biases": "Conv3_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool2",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv3",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv5_filters.npy",
+                        "biases": "Conv5_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool3",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "flatten",
+                    "type": "flatten"
+                },
+                {
+                    "name": "dense1",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "Dense8_weights.npy",
+                        "biases": "Dense8_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "output",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "OutputLayer_weights.npy",
+                        "biases": "OutputLayer_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "softmax"
+                    }
+                }
+
+            ]
+        },
+        {
+            "model_name": "model_kernel5x5_dense128",
+            "model_directory": "model_kernel5x5_dense128",
+            "layers": [
+                {
+                    "name": "conv1",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv1_filters.npy",
+                        "biases": "Conv1_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool1",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv2",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv3_filters.npy",
+                        "biases": "Conv3_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool2",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv3",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv5_filters.npy",
+                        "biases": "Conv5_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool3",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "flatten",
+                    "type": "flatten"
+                },
+                {
+                    "name": "dense1",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "Dense8_weights.npy",
+                        "biases": "Dense8_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "output",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "OutputLayer_weights.npy",
+                        "biases": "OutputLayer_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "softmax"
+                    }
+                }
+
+            ]
+        },
+        {
+            "model_name": "model_kernel5x5_dense256",
+            "model_directory": "model_kernel5x5_dense256",
+            "layers": [
+                {
+                    "name": "conv1",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv1_filters.npy",
+                        "biases": "Conv1_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool1",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv2",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv3_filters.npy",
+                        "biases": "Conv3_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool2",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "conv3",
+                    "type": "convolution",
+                    "weights": {
+                        "filters": "Conv5_filters.npy",
+                        "biases": "Conv5_biases.npy"
+                    },
+                    "parameters": {
+                        "padding": "same",
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "maxpool3",
+                    "type": "maxpooling",
+                    "parameters": {
+                        "pool_size": [2, 2],
+                        "strides": [2, 2]
+                    }
+                },
+                {
+                    "name": "flatten",
+                    "type": "flatten"
+                },
+                {
+                    "name": "dense1",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "Dense8_weights.npy",
+                        "biases": "Dense8_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "relu"
+                    }
+                },
+                {
+                    "name": "output",
+                    "type": "dense",
+                    "weights": {
+                        "weights": "OutputLayer_weights.npy",
+                        "biases": "OutputLayer_biases.npy"
+                    },
+                    "parameters": {
+                        "activation": "softmax"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+[
+    {
+        "timestamp": "2024-12-27 17:53:48",
+        "layer_type": "dense",
+        "tests_passed": true,
+        "execution_time": "0.07 seconds",
+        "results": {
+            "Basic dense with ReLU": {
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "output_shape": [
+                    1,
+                    32
+                ],
+                "min_output": 0.0,
+                "max_output": 0.17972575109440192,
+                "mean_output": 0.03955424356301389
+            },
+            "Dense with Softmax": {
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "output_shape": [
+                    4,
+                    10
+                ],
+                "min_output": 0.08189158445638046,
+                "max_output": 0.11660472577453167,
+                "mean_output": 0.1
+            },
+            "Large dense layer": {
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "output_shape": [
+                    8,
+                    256
+                ],
+                "min_output": 0.0,
+                "max_output": 0.6964774957905491,
+                "mean_output": 0.09093216002371204
+            },
+            "Dense with custom weights": {
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "output_shape": [
+                    1,
+                    32
+                ],
+                "min_output": 0.0,
+                "max_output": 0.26179736146291444,
+                "mean_output": 0.035004617309448434
+            },
+            "Dense with custom biases": {
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "output_shape": [
+                    1,
+                    32
+                ],
+                "min_output": 0.0,
+                "max_output": 0.2012815694944285,
+                "mean_output": 0.042558282686705876
+            }
+        }
+    }
+]
