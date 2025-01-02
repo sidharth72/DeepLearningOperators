@@ -111,7 +111,8 @@ This repository showcases Convolutional Neural Network models built from scratch
 2. **Install Python dependencies:**
 
    ```bash
-   pip install -r PythonExamples/requirements.txt
+   cd PythonExamples
+   pip install -r requirements.txt
    ```
 
 ---
