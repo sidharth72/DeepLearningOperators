@@ -9,6 +9,8 @@
 #include "ConvolutionLayer.h"
 #include "MaxPoolingLayer.h"
 #include "DenseLayer.h"
+#include "SoftmaxLayer.h"
+#include "ReLULayer.h"
 #include "ModelLoader.h"
 #include "model_tests.h"
 
@@ -81,6 +83,12 @@ json run_layer_tests(const std::string& layer_type) {
 
         if (layer_type == "conv") {
             results = test_suite.test_convolution_layer();
+        }
+        else if (layer_type == "relu") {
+            results = test_suite.test_relu_layer();
+        }
+        else if (layer_type == "softmax") {
+            results = test_suite.test_softmax_layer();
         }
         else if (layer_type == "maxpool") {
             results = test_suite.test_max_pooling_layer();
@@ -162,7 +170,8 @@ int main(int argc, char* argv[]) {
         
         if (test_type == "L") {
             std::string layer_type = argv[2];
-            if (layer_type != "conv" && layer_type != "maxpool" && layer_type != "dense") {
+            if (layer_type != "conv" && layer_type != "maxpool" && layer_type != "dense"
+                && layer_type != "relu" && layer_type != "softmax") {
                 std::cout << "Invalid layer type. Must be conv, maxpool, or dense." << std::endl;
                 return 1;
             }

@@ -7,6 +7,8 @@
 #include "ConvolutionLayer.h"
 #include "MaxPoolingLayer.h"
 #include "DenseLayer.h"
+#include "ReLULayer.h"
+#include "SoftmaxLayer.h"
 
 
 std::vector<TestSuite::ConvTestCase> TestSuite::get_conv_test_cases() {
@@ -110,6 +112,55 @@ std::vector<TestSuite::DenseTestCase> TestSuite::get_dense_test_cases() {
     };
 }
 
+
+std::vector<TestSuite::ReLUTestCase> TestSuite::get_relu_test_cases() {
+    return {
+        {
+            "Basic test with small input",
+            {1, 4, 4, 3}  // batch_size, height, width, channels
+        },
+        {
+            "Multiple batch size test",
+            {4, 8, 8, 3}
+        },
+        {
+            "Single channel input",
+            {1, 28, 28, 1}
+        },
+        {
+            "Large feature map",
+            {1, 32, 32, 64}
+        },
+        {
+            "Multi-batch large input",
+            {8, 16, 16, 32}
+        }
+    };
+}
+
+// Softmax layer testcases
+
+std::vector<TestSuite::SoftmaxTestCase> TestSuite::get_softmax_test_cases() {
+    return {
+        {
+            "Basic classification test",
+            {1, 10}  // Single sample, 10 classes
+        },
+        {
+            "Large number of classes",
+            {1, 100}  // Batch of 32, 10 classes
+        },
+        {
+            "Binary classification",
+            {1, 2}  // Batch of 8, binary classification
+        },
+        {
+            "single class",
+            {1, 1}  // Large batch, 100 classes
+        }
+    };
+}
+
 // Convolution layer tests
 std::map<std::string, TestReport> TestSuite::test_convolution_layer() {
     std::map<std::string, TestReport> report;
@@ -162,7 +213,6 @@ std::map<std::string, TestReport> TestSuite::test_max_pooling_layer() {
             case_info.strides
         );
 
-
         auto test_input = xt::random::randn<double>(case_info.input_shape);
         auto expected_shape = layer.get_output_shape(case_info.input_shape);
         auto output = layer.forward(test_input);
@@ -199,8 +249,7 @@ std::map<std::string, TestReport> TestSuite::test_dense_layer() {
 
         DenseLayer layer(
             case_info.params.input_size,
-            case_info.params.output_size,
-            case_info.params.activation
+            case_info.params.output_size
         );
 
         auto test_input = xt::random::randn<double>({case_info.batch_size, case_info.params.input_size});
@@ -219,6 +268,72 @@ std::map<std::string, TestReport> TestSuite::test_dense_layer() {
         assert(!xt::any(xt::isnan(output)));
         assert(!xt::any(xt::isinf(output)));
         assert(xt::all(output >= 0));
+
+        std::cout << "✓ Test passed" << std::endl;
+        report[case_info.name] = test_report;
+    }
+
+    return report;
+}
+
+// ReLU layer tests
+std::map<std::string, TestReport> TestSuite::test_relu_layer() {
+    std::map<std::string, TestReport> report;
+    auto test_cases = get_relu_test_cases();
+
+    for (const auto& case_info : test_cases) {
+        std::cout << "\nRunning test: " << case_info.name << std::endl;
+
+        ReLULayer layer;
+        auto test_input = xt::random::randn<double>(case_info.input_shape);
+        auto output = layer.forward(test_input);
+
+        TestReport test_report;
+        test_report.input_shape = case_info.input_shape;
+        test_report.output_shape = std::vector<size_t>(output.shape().begin(), output.shape().end());
+        test_report.expected_shape = case_info.input_shape;
+        test_report.min_output = xt::amin(output)();
+        test_report.max_output = xt::amax(output)();
+        test_report.mean_output = calculate_mean(output);
+
+        // Assertions
+        assert(output.shape() == xt::xarray<double>::shape_type(test_report.expected_shape.begin(), test_report.expected_shape.end()));
+        assert(!xt::any(xt::isnan(output)));
+        assert(!xt::any(xt::isinf(output)));
+        assert(xt::all(output >= 0));
+
+        std::cout << "✓ Test passed" << std::endl;
+        report[case_info.name] = test_report;
+    }
+
+    return report;
+}
+// Softmax layer tests
+std::map<std::string, TestReport> TestSuite::test_softmax_layer() {
+    std::map<std::string, TestReport> report;
+    auto test_cases = get_softmax_test_cases();
+
+    for (const auto& case_info : test_cases) {
+        std::cout << "\nRunning test: " << case_info.name << std::endl;
+
+        SoftmaxLayer layer;
+        auto test_input = xt::random::randn<double>(case_info.input_shape);
+        auto output = layer.forward(test_input);
+
+        TestReport test_report;
+        test_report.input_shape = case_info.input_shape;
+        test_report.output_shape = std::vector<size_t>(output.shape().begin(), output.shape().end());
+        test_report.expected_shape = case_info.input_shape;
+        test_report.min_output = xt::amin(output)();
+        test_report.max_output = xt::amax(output)();
+        test_report.mean_output = calculate_mean(output);
+
+        // Assertions
+        assert(output.shape() == xt::xarray<double>::shape_type(test_report.expected_shape.begin(), test_report.expected_shape.end()));
+        assert(!xt::any(xt::isnan(output)));
+        assert(!xt::any(xt::isinf(output)));
+        assert(xt::all(output >= 0));
+        assert(xt::all(output <= 1));
 
         std::cout << "✓ Test passed" << std::endl;
         report[case_info.name] = test_report;

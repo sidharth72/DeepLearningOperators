@@ -1,0 +1,322 @@
+[
+  {
+    "layer_name": "Conv1",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      3,
+      32
+    ],
+    "bias_shape": [
+      32
+    ],
+    "kernel_file": "Conv1_kernel.npy",
+    "bias_file": "Conv1_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm2",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      32
+    ],
+    "beta_shape": [
+      32
+    ],
+    "mean_shape": [
+      32
+    ],
+    "variance_shape": [
+      32
+    ],
+    "gamma_file": "BatchNorm2_gamma.npy",
+    "beta_file": "BatchNorm2_beta.npy",
+    "mean_file": "BatchNorm2_running_mean.npy",
+    "variance_file": "BatchNorm2_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Conv4",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      32,
+      32
+    ],
+    "bias_shape": [
+      32
+    ],
+    "kernel_file": "Conv4_kernel.npy",
+    "bias_file": "Conv4_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm5",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      32
+    ],
+    "beta_shape": [
+      32
+    ],
+    "mean_shape": [
+      32
+    ],
+    "variance_shape": [
+      32
+    ],
+    "gamma_file": "BatchNorm5_gamma.npy",
+    "beta_file": "BatchNorm5_beta.npy",
+    "mean_file": "BatchNorm5_running_mean.npy",
+    "variance_file": "BatchNorm5_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Dropout8",
+    "type": "Dropout",
+    "rate": 0.25
+  },
+  {
+    "layer_name": "Conv9",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      32,
+      64
+    ],
+    "bias_shape": [
+      64
+    ],
+    "kernel_file": "Conv9_kernel.npy",
+    "bias_file": "Conv9_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm10",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      64
+    ],
+    "beta_shape": [
+      64
+    ],
+    "mean_shape": [
+      64
+    ],
+    "variance_shape": [
+      64
+    ],
+    "gamma_file": "BatchNorm10_gamma.npy",
+    "beta_file": "BatchNorm10_beta.npy",
+    "mean_file": "BatchNorm10_running_mean.npy",
+    "variance_file": "BatchNorm10_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Conv12",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      64,
+      64
+    ],
+    "bias_shape": [
+      64
+    ],
+    "kernel_file": "Conv12_kernel.npy",
+    "bias_file": "Conv12_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm13",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      64
+    ],
+    "beta_shape": [
+      64
+    ],
+    "mean_shape": [
+      64
+    ],
+    "variance_shape": [
+      64
+    ],
+    "gamma_file": "BatchNorm13_gamma.npy",
+    "beta_file": "BatchNorm13_beta.npy",
+    "mean_file": "BatchNorm13_running_mean.npy",
+    "variance_file": "BatchNorm13_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Dropout16",
+    "type": "Dropout",
+    "rate": 0.25
+  },
+  {
+    "layer_name": "Conv17",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      64,
+      128
+    ],
+    "bias_shape": [
+      128
+    ],
+    "kernel_file": "Conv17_kernel.npy",
+    "bias_file": "Conv17_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm18",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      128
+    ],
+    "beta_shape": [
+      128
+    ],
+    "mean_shape": [
+      128
+    ],
+    "variance_shape": [
+      128
+    ],
+    "gamma_file": "BatchNorm18_gamma.npy",
+    "beta_file": "BatchNorm18_beta.npy",
+    "mean_file": "BatchNorm18_running_mean.npy",
+    "variance_file": "BatchNorm18_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Conv20",
+    "type": "Conv2D",
+    "kernel_shape": [
+      3,
+      3,
+      128,
+      128
+    ],
+    "bias_shape": [
+      128
+    ],
+    "kernel_file": "Conv20_kernel.npy",
+    "bias_file": "Conv20_bias.npy",
+    "padding": "same",
+    "strides": [
+      1,
+      1
+    ]
+  },
+  {
+    "layer_name": "BatchNorm21",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      128
+    ],
+    "beta_shape": [
+      128
+    ],
+    "mean_shape": [
+      128
+    ],
+    "variance_shape": [
+      128
+    ],
+    "gamma_file": "BatchNorm21_gamma.npy",
+    "beta_file": "BatchNorm21_beta.npy",
+    "mean_file": "BatchNorm21_running_mean.npy",
+    "variance_file": "BatchNorm21_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Dropout24",
+    "type": "Dropout",
+    "rate": 0.25
+  },
+  {
+    "layer_name": "Dense26",
+    "type": "Dense",
+    "weights_shape": [
+      2048,
+      512
+    ],
+    "bias_shape": [
+      512
+    ],
+    "weights_file": "Dense26_weights.npy",
+    "bias_file": "Dense26_bias.npy"
+  },
+  {
+    "layer_name": "BatchNorm27",
+    "type": "BatchNormalization",
+    "gamma_shape": [
+      512
+    ],
+    "beta_shape": [
+      512
+    ],
+    "mean_shape": [
+      512
+    ],
+    "variance_shape": [
+      512
+    ],
+    "gamma_file": "BatchNorm27_gamma.npy",
+    "beta_file": "BatchNorm27_beta.npy",
+    "mean_file": "BatchNorm27_running_mean.npy",
+    "variance_file": "BatchNorm27_running_variance.npy",
+    "epsilon": 0.001,
+    "momentum": 0.99
+  },
+  {
+    "layer_name": "Dropout29",
+    "type": "Dropout",
+    "rate": 0.5
+  },
+  {
+    "layer_name": "OutputLayer",
+    "type": "Dense",
+    "weights_shape": [
+      512,
+      10
+    ],
+    "bias_shape": [
+      10
+    ],
+    "weights_file": "OutputLayer_weights.npy",
+    "bias_file": "OutputLayer_bias.npy"
+  }
+]

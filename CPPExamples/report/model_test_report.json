@@ -208,5 +208,19 @@
         "test_type": "model",
         "tests_passed": true,
         "timestamp": "2025-01-02 17:52:30"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-03 11:49:01"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-06 10:39:18"
     }
 ]

@@ -1207,5 +1207,1293 @@
         },
         "tests_passed": true,
         "timestamp": "2025-01-02 17:48:47"
+    },
+    {
+        "execution_time": "0.045470 seconds",
+        "layer_type": "maxpool",
+        "results": {
+            "Basic 2x2 pooling with default stride": {
+                "expected_shape": [
+                    1,
+                    2,
+                    2,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.9796064478222356,
+                "min_output": 0.010215434345918413,
+                "output_shape": [
+                    1,
+                    2,
+                    2,
+                    3
+                ]
+            },
+            "Custom pooling with different stride": {
+                "expected_shape": [
+                    2,
+                    3,
+                    3,
+                    1
+                ],
+                "input_shape": [
+                    2,
+                    8,
+                    8,
+                    1
+                ],
+                "max_output": 2.91628293101461,
+                "mean_output": 1.4693606105572465,
+                "min_output": 0.4048309218544268,
+                "output_shape": [
+                    2,
+                    3,
+                    3,
+                    1
+                ]
+            },
+            "Custom pooling with same stride": {
+                "expected_shape": [
+                    1,
+                    14,
+                    14,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    16,
+                    16,
+                    3
+                ],
+                "max_output": 3.0176217116588453,
+                "mean_output": 1.413530417748522,
+                "min_output": -0.03774987228489242,
+                "output_shape": [
+                    1,
+                    14,
+                    14,
+                    3
+                ]
+            },
+            "Large input with default pooling": {
+                "expected_shape": [
+                    4,
+                    16,
+                    16,
+                    64
+                ],
+                "input_shape": [
+                    4,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.203803520934344,
+                "mean_output": 1.0292236285916596,
+                "min_output": -1.3601405105072915,
+                "output_shape": [
+                    4,
+                    16,
+                    16,
+                    64
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    14,
+                    14,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 4.53553135173725,
+                "mean_output": 1.1518961091802828,
+                "min_output": -0.46723694583214204,
+                "output_shape": [
+                    1,
+                    14,
+                    14,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-03 11:02:40"
+    },
+    {
+        "execution_time": "0.020662 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": 0.02510876447400117,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.12620159603986425,
+                "mean_output": 0.1,
+                "min_output": 0.07808997304989947,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": 0.02723660004032859,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.03146973373627828,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.09539826808991181,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 10:38:54"
+    },
+    {
+        "execution_time": "0.015966 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": 0.02510876447400117,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.12620159603986425,
+                "mean_output": 0.1,
+                "min_output": 0.07808997304989947,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": 0.02723660004032859,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.03146973373627828,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.09539826808991181,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 10:43:45"
+    },
+    {
+        "execution_time": "0.039494 seconds",
+        "layer_type": "maxpool",
+        "results": {
+            "Basic 2x2 pooling with default stride": {
+                "expected_shape": [
+                    1,
+                    2,
+                    2,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.9796064478222356,
+                "min_output": 0.010215434345918413,
+                "output_shape": [
+                    1,
+                    2,
+                    2,
+                    3
+                ]
+            },
+            "Custom pooling with different stride": {
+                "expected_shape": [
+                    2,
+                    3,
+                    3,
+                    1
+                ],
+                "input_shape": [
+                    2,
+                    8,
+                    8,
+                    1
+                ],
+                "max_output": 2.91628293101461,
+                "mean_output": 1.4693606105572465,
+                "min_output": 0.4048309218544268,
+                "output_shape": [
+                    2,
+                    3,
+                    3,
+                    1
+                ]
+            },
+            "Custom pooling with same stride": {
+                "expected_shape": [
+                    1,
+                    14,
+                    14,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    16,
+                    16,
+                    3
+                ],
+                "max_output": 3.0176217116588453,
+                "mean_output": 1.413530417748522,
+                "min_output": -0.03774987228489242,
+                "output_shape": [
+                    1,
+                    14,
+                    14,
+                    3
+                ]
+            },
+            "Large input with default pooling": {
+                "expected_shape": [
+                    4,
+                    16,
+                    16,
+                    64
+                ],
+                "input_shape": [
+                    4,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.203803520934344,
+                "mean_output": 1.0292236285916596,
+                "min_output": -1.3601405105072915,
+                "output_shape": [
+                    4,
+                    16,
+                    16,
+                    64
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    14,
+                    14,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 4.53553135173725,
+                "mean_output": 1.1518961091802828,
+                "min_output": -0.46723694583214204,
+                "output_shape": [
+                    1,
+                    14,
+                    14,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 10:43:51"
+    },
+    {
+        "execution_time": "0.011604 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": 0.02510876447400117,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.12620159603986425,
+                "mean_output": 0.1,
+                "min_output": 0.07808997304989947,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": 0.02723660004032859,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.03146973373627828,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.09539826808991181,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 13:20:19"
+    },
+    {
+        "execution_time": "0.012802 seconds",
+        "layer_type": "relu",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.41265983768238135,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028386657441622,
+                "mean_output": 0.3956598869560203,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961944573740173,
+                "mean_output": 0.40039153243118786,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492780684386396,
+                "mean_output": 0.379733356668537,
+                "min_output": 0.0,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044795658959832,
+                "mean_output": 0.41843824742969155,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 13:20:22"
+    },
+    {
+        "error": "Input must be 2-dimensional (batch_size x features)",
+        "execution_time": "0.001280 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:20:29"
+    },
+    {
+        "error": "Input must be 2-dimensional (batch_size x features)",
+        "execution_time": "0.001468 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:26:02"
+    },
+    {
+        "error": "Error in softmax forward pass: Incompatible dimension of arrays, compile in DEBUG for more info",
+        "execution_time": "0.001448 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:29:31"
+    },
+    {
+        "execution_time": "0.012231 seconds",
+        "layer_type": "relu",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.41265983768238135,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028386657441622,
+                "mean_output": 0.3956598869560203,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961944573740173,
+                "mean_output": 0.40039153243118786,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492780684386396,
+                "mean_output": 0.379733356668537,
+                "min_output": 0.0,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044795658959832,
+                "mean_output": 0.41843824742969155,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 13:45:40"
+    },
+    {
+        "error": "Error in softmax forward pass: Incompatible dimension of arrays, compile in DEBUG for more info",
+        "execution_time": "0.002961 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:45:45"
+    },
+    {
+        "error": "Error in softmax forward pass: Incompatible dimension of arrays, compile in DEBUG for more info",
+        "execution_time": "0.030534 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:46:19"
+    },
+    {
+        "error": "Error in softmax forward pass: Numerical error: NaN or Inf values detected in output",
+        "execution_time": "0.000676 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 13:52:59"
+    },
+    {
+        "error": "Error in softmax forward pass: Numerical error: NaN or Inf values detected in output",
+        "execution_time": "0.001848 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 15:52:18"
+    },
+    {
+        "execution_time": "0.016547 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": 0.02510876447400117,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.12620159603986425,
+                "mean_output": 0.1,
+                "min_output": 0.07808997304989947,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": 0.02723660004032859,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.03146973373627828,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.09539826808991181,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 15:52:25"
+    },
+    {
+        "execution_time": "0.018345 seconds",
+        "layer_type": "relu",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.41265983768238135,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028386657441622,
+                "mean_output": 0.3956598869560203,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961944573740173,
+                "mean_output": 0.40039153243118786,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492780684386396,
+                "mean_output": 0.379733356668537,
+                "min_output": 0.0,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044795658959832,
+                "mean_output": 0.41843824742969155,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 15:52:29"
+    },
+    {
+        "error": "Error in softmax forward pass: Incompatible dimension of arrays, compile in DEBUG for more info",
+        "execution_time": "0.002400 seconds",
+        "layer_type": "softmax",
+        "tests_passed": false,
+        "timestamp": "2025-01-06 16:01:49"
+    },
+    {
+        "execution_time": "0.012859 seconds",
+        "layer_type": "softmax",
+        "results": {
+            "Basic classification test": {
+                "expected_shape": [
+                    1,
+                    10
+                ],
+                "input_shape": [
+                    1,
+                    10
+                ],
+                "max_output": 0.252037375935916,
+                "mean_output": 0.1,
+                "min_output": 0.013500498888004095,
+                "output_shape": [
+                    1,
+                    10
+                ]
+            },
+            "Binary classification": {
+                "expected_shape": [
+                    1,
+                    2
+                ],
+                "input_shape": [
+                    1,
+                    2
+                ],
+                "max_output": 0.7505351832871936,
+                "mean_output": 0.5000000000000001,
+                "min_output": 0.24946481671280654,
+                "output_shape": [
+                    1,
+                    2
+                ]
+            },
+            "Large number of classes": {
+                "expected_shape": [
+                    1,
+                    100
+                ],
+                "input_shape": [
+                    1,
+                    100
+                ],
+                "max_output": 0.10476034158816439,
+                "mean_output": 0.010000000000000002,
+                "min_output": 0.00023009904214584152,
+                "output_shape": [
+                    1,
+                    100
+                ]
+            },
+            "single class": {
+                "expected_shape": [
+                    1,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    1
+                ],
+                "max_output": 1.0,
+                "mean_output": 1.0,
+                "min_output": 1.0,
+                "output_shape": [
+                    1,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-06 16:47:55"
+    },
+    {
+        "execution_time": "0.019206 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": -0.006084469950666092,
+                "min_output": -0.11874848169708695,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.2526088846537078,
+                "mean_output": 0.012577910886500085,
+                "min_output": -0.24897973069175627,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": -0.007442064578537899,
+                "min_output": -0.2231626661971867,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.004343841190764804,
+                "min_output": -0.19711770070378518,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.007555301252312052,
+                "min_output": -0.806248536860986,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-07 19:22:35"
+    },
+    {
+        "execution_time": "0.010484 seconds",
+        "layer_type": "softmax",
+        "results": {
+            "Basic classification test": {
+                "expected_shape": [
+                    1,
+                    10
+                ],
+                "input_shape": [
+                    1,
+                    10
+                ],
+                "max_output": 0.252037375935916,
+                "mean_output": 0.1,
+                "min_output": 0.013500498888004095,
+                "output_shape": [
+                    1,
+                    10
+                ]
+            },
+            "Binary classification": {
+                "expected_shape": [
+                    1,
+                    2
+                ],
+                "input_shape": [
+                    1,
+                    2
+                ],
+                "max_output": 0.7505351832871936,
+                "mean_output": 0.5000000000000001,
+                "min_output": 0.24946481671280654,
+                "output_shape": [
+                    1,
+                    2
+                ]
+            },
+            "Large number of classes": {
+                "expected_shape": [
+                    1,
+                    100
+                ],
+                "input_shape": [
+                    1,
+                    100
+                ],
+                "max_output": 0.10476034158816439,
+                "mean_output": 0.010000000000000002,
+                "min_output": 0.00023009904214584152,
+                "output_shape": [
+                    1,
+                    100
+                ]
+            },
+            "single class": {
+                "expected_shape": [
+                    1,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    1
+                ],
+                "max_output": 1.0,
+                "mean_output": 1.0,
+                "min_output": 1.0,
+                "output_shape": [
+                    1,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-07 19:22:41"
     }
 ]

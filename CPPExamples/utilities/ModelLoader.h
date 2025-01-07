@@ -9,6 +9,9 @@
 #include "../include/MaxPoolingLayer.h"
 #include "../include/FlattenLayer.h"
 #include "../include/DenseLayer.h"
+#include "../include/ReLULayer.h"
+#include "../include/SoftmaxLayer.h"
+#include "../include/BatchNormalizationLayer.h"
 
 using json = nlohmann::json;
 

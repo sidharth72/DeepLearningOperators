@@ -105,6 +105,9 @@ add_operator_library(convolution_layer "ConvolutionLayer.cpp")
 add_operator_library(maxpooling_layer "MaxPoolingLayer.cpp")
 add_operator_library(flatten_layer "FlattenLayer.cpp")
 add_operator_library(dense_layer "DenseLayer.cpp")
+add_operator_library(softmax_layer "SoftmaxLayer.cpp")
+add_operator_library(relu_layer "ReLULayer.cpp")
+add_operator_library(batch_normalization_layer "BatchNormalizationLayer.cpp")
 
 # =================================================================
 # Main Executable Configuration
@@ -122,6 +125,9 @@ target_link_libraries(main PRIVATE
     maxpooling_layer
     flatten_layer
     dense_layer
+    relu_layer
+    softmax_layer
+    batch_normalization_layer
     model_loader
     ${OpenCV_LIBS}
     nlohmann_json::nlohmann_json
@@ -137,6 +143,9 @@ target_link_libraries(tests PRIVATE
     maxpooling_layer
     flatten_layer
     dense_layer
+    relu_layer
+    softmax_layer
+    batch_normalization_layer
     model_loader
     ${OpenCV_LIBS}
     nlohmann_json::nlohmann_json
@@ -144,6 +153,7 @@ target_link_libraries(tests PRIVATE
     xtensor
     xtensor-blas
     OpenBLAS::OpenBLAS
+
 )
 
 # Link libraries for onnx_inference

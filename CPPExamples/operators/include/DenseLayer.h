@@ -7,11 +7,9 @@
 class DenseLayer {
 public:
     // Constructors
-    DenseLayer(const std::string& weights_path, const std::string& biases_path,
-               const std::string& activation = "relu");
+    DenseLayer(const std::string& weights_path, const std::string& biases_path);
     
-    DenseLayer(size_t input_size, size_t output_size, 
-               const std::string& activation = "relu");
+    DenseLayer(size_t input_size, size_t output_size);
 
     // Forward pass
     xt::xarray<double> forward(const xt::xarray<double>& input_data);
@@ -26,12 +24,9 @@ private:
     size_t output_size;
     xt::xarray<double> weights;
     xt::xarray<double> biases;
-    std::string activation;
 
     // Helper functions
     void _validate_input(const xt::xarray<double>& input_data);
-    xt::xarray<double> _relu(const xt::xarray<double>& x);
-    xt::xarray<double> _softmax(const xt::xarray<double>& x);
 };
 
 #endif // DENSE_LAYER_H

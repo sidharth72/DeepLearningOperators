@@ -45,6 +45,41 @@ std::vector<LayerInfo> ModelLoader::load_model_layers(
             );
             layer_info.layer = std::static_pointer_cast<void>(conv_layer);
         }
+
+        else if (layer_info.type == "batch_normalization") {
+
+            std::string gamma = base_weights_dir + "/" + model_dir + "/" + 
+                                     layer_config["weights"]["gamma"].get<std::string>();
+
+            std::string beta = base_weights_dir + "/" + model_dir + "/" +
+                                    layer_config["weights"]["beta"].get<std::string>();
+
+            std::string running_mean = base_weights_dir + "/" + model_dir + "/" +
+                                    layer_config["weights"]["moving_mean"].get<std::string>(); 
+            
+            std::string running_var = base_weights_dir + "/" + model_dir + "/" +
+                                    layer_config["weights"]["moving_variance"].get<std::string>();
+
+
+            auto batch_norm = std::make_shared<BatchNormalizationLayer>(
+                gamma,
+                beta,
+                running_mean,
+                running_var
+            );
+
+            layer_info.layer = std::static_pointer_cast<void>(batch_norm);
+
+        }
+
+        else if (layer_info.type == "relu_activation") {
+            auto relu_layer = std::make_shared<ReLULayer>();
+            layer_info.layer = std::static_pointer_cast<void>(relu_layer);
+        }
+        else if (layer_info.type == "softmax_activation") {
+            auto softmax_layer = std::make_shared<SoftmaxLayer>();
+            layer_info.layer = std::static_pointer_cast<void>(softmax_layer);
+        }
         else if (layer_info.type == "maxpooling") {
             // Get pool size parameters with explicit integer conversion
             auto pool_size = std::make_tuple(
@@ -76,8 +111,7 @@ std::vector<LayerInfo> ModelLoader::load_model_layers(
             // Create dense layer
             auto dense_layer = std::make_shared<DenseLayer>(
                 weights_path,
-                biases_path,
-                activation
+                biases_path
             );
             layer_info.layer = std::static_pointer_cast<void>(dense_layer);
         }

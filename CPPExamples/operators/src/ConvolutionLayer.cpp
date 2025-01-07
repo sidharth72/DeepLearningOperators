@@ -11,7 +11,6 @@
 ConvolutionLayer::ConvolutionLayer(const std::string& filters_path, const std::string& biases_path) {
     filters = xt::load_npy<float>(filters_path);
     biases = xt::load_npy<float>(biases_path);
-    
     // Ensure filters are in the correct format: [height, width, in_channels, out_channels]
     if (filters.dimension() != 4) {
         throw std::runtime_error("Filters must be 4-dimensional");
@@ -149,8 +148,7 @@ xt::xarray<double> ConvolutionLayer::forward(const xt::xarray<double>& input_dat
         }
     }
 
-    // Apply ReLU activation
-    return xt::maximum(output, 0.0);
+    return output;  // ReLU activation
 }
 
 std::vector<size_t> ConvolutionLayer::get_output_shape(const std::vector<size_t>& input_shape,
