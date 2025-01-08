@@ -150,7 +150,7 @@ After building the project, you can run the executables located in the `build/Re
 
   ```bash
   cd build
-  Release/main.exe
+  Release/main.exe <path/to/image.jpg>
   ```
 
 - **ONNX Inference:** Runs the inference using ONNX runtime.
@@ -164,8 +164,36 @@ After building the project, you can run the executables located in the `build/Re
 
   ```bash
   cd build
-  Release/tests.exe
   ```
+  for performing layer-wise testing, run
+  ```
+  Release\tests.exe L <layer> Eg: conv, relu, softmax, maxpool, batch_norm
+  ```
+
+  for performing model tests, run
+  ```
+  Release\tests.exe M <path/to/image.jpg>
+  ```
+  this will prompt to select the index number of the exepected class,
+  ```
+   Available classes:
+   0: airplane
+   1: automobile
+   2: bird
+   3: cat
+   4: deer
+   5: dog
+   6: frog
+   7: horse
+   8: ship
+   9: truck
+
+   Enter the expected class number: 0
+
+  ```
+  It will pass the inputs through the model and return the predictions,
+  the testcase will check if all the layers are passed and the prediction matches the expected label.
+
 
 ### Running Python Scripts
 

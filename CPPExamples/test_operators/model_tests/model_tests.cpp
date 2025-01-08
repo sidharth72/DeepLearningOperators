@@ -3,6 +3,9 @@
 #include "MaxPoolingLayer.h"
 #include "FlattenLayer.h"
 #include "DenseLayer.h"
+#include "SoftmaxLayer.h"
+#include "ReLULayer.h"
+#include "BatchNormalizationLayer.h"
 #include <iostream>
 #include <iomanip>
 
@@ -31,6 +34,19 @@ ModelTestResult test_model_layers(
                 if (layer_name.find("conv") != std::string::npos) {
                     auto conv_layer = std::static_pointer_cast<ConvolutionLayer>(layer_ptr);
                     x = conv_layer->forward(x, "same");
+                }
+
+                else if (layer_name.find("batch_norm") != std::string::npos) {
+                    auto batch_norm_layer = std::static_pointer_cast<BatchNormalizationLayer>(layer_ptr);
+                    x = batch_norm_layer->forward(x);
+                }
+                else if (layer_name.find("relu") != std::string::npos) {
+                    auto relu_layer = std::static_pointer_cast<ReLULayer>(layer_ptr);
+                    x = relu_layer->forward(x);
+                }
+                else if (layer_name.find("softmax") != std::string::npos) {
+                    auto softmax_layer = std::static_pointer_cast<SoftmaxLayer>(layer_ptr);
+                    x = softmax_layer->forward(x);
                 }
                 else if (layer_name.find("pool") != std::string::npos) {
                     auto pool_layer = std::static_pointer_cast<MaxPoolingLayer>(layer_ptr);

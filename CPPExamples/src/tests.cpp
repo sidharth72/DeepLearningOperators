@@ -11,6 +11,7 @@
 #include "DenseLayer.h"
 #include "SoftmaxLayer.h"
 #include "ReLULayer.h"
+#include "BatchNormalizationLayer.h"
 #include "ModelLoader.h"
 #include "model_tests.h"
 
@@ -84,6 +85,9 @@ json run_layer_tests(const std::string& layer_type) {
         if (layer_type == "conv") {
             results = test_suite.test_convolution_layer();
         }
+        else if(layer_type == "batch_norm"){
+            results = test_suite.test_batch_normalization_layer();
+        }
         else if (layer_type == "relu") {
             results = test_suite.test_relu_layer();
         }
@@ -152,7 +156,7 @@ json run_layer_tests(const std::string& layer_type) {
 void print_usage() {
     std::cout << "Usage:" << std::endl;
     std::cout << "For layer tests: tests.exe L <layer_type>" << std::endl;
-    std::cout << "  where <layer_type> can be conv, maxpool, or dense" << std::endl;
+    std::cout << "  where <layer_type> can be conv, maxpool, dense, relu, softmax, batch_norm" << std::endl;
     std::cout << "For model tests: tests.exe M <image_path>" << std::endl;
     std::cout << "  where <image_path> is the path to the input image" << std::endl;
 }
@@ -171,8 +175,8 @@ int main(int argc, char* argv[]) {
         if (test_type == "L") {
             std::string layer_type = argv[2];
             if (layer_type != "conv" && layer_type != "maxpool" && layer_type != "dense"
-                && layer_type != "relu" && layer_type != "softmax") {
-                std::cout << "Invalid layer type. Must be conv, maxpool, or dense." << std::endl;
+                && layer_type != "relu" && layer_type != "softmax" && layer_type != "batch_norm") {
+                std::cout << "Invalid layer type. Must be conv, maxpool, relu, softmax, or batch_norm." << std::endl;
                 return 1;
             }
             
@@ -210,8 +214,8 @@ int main(int argc, char* argv[]) {
                 // Preprocess input image
                 auto input_data = ModelLoader::preprocess_image(image_path, global_settings);
 
-                // Load model layers (using the second model with 3x3 filters and 128 dense layer)
-                auto layers = ModelLoader::load_model_layers(models_config[1], base_weights_dir);
+                // Load the model layers
+                auto layers = ModelLoader::load_model_layers(models_config[0], base_weights_dir);
 
                 for (const auto& layer_info : layers) {
                     std::cout << "Layer: " << layer_info.name << std::endl;

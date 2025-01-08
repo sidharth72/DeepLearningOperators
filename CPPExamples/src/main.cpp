@@ -102,6 +102,7 @@ void print_usage() {
 }
 
 
+
 // main function that accepts an image path as an argument and processes it
 int main(int argc, char* argv[]) {
     if (argc != 2) {

@@ -9,6 +9,7 @@
 #include "DenseLayer.h"
 #include "ReLULayer.h"
 #include "SoftmaxLayer.h"
+#include "BatchNormalizationLayer.h"
 
 
 std::vector<TestSuite::ConvTestCase> TestSuite::get_conv_test_cases() {
@@ -46,6 +47,31 @@ std::vector<TestSuite::ConvTestCase> TestSuite::get_conv_test_cases() {
     };
 }
 
+std::vector<TestSuite::BatchNormTestCase> TestSuite::get_batchnorm_test_cases() {
+    return {
+        {
+            "Basic test with small input",
+            {1, 4, 4, 3}  // batch_size, height, width, channels
+        },
+        {
+            "Multiple batch size test",
+            {4, 8, 8, 3}
+        },
+        {
+            "Single channel input",
+            {1, 28, 28, 1}
+        },
+        {
+            "Large feature map",
+            {1, 32, 32, 64}
+        },
+        {
+            "Multi-batch large input",
+            {8, 16, 16, 32}
+        }
+    };
+
+}
 
 std::vector<TestSuite::PoolTestCase> TestSuite::get_pool_test_cases() {
     return {
@@ -189,6 +215,38 @@ std::map<std::string, TestReport> TestSuite::test_convolution_layer() {
 
         // Assertions
         assert(output.shape() == xt::xarray<double>::shape_type(expected_shape.begin(), expected_shape.end()));
+        assert(!xt::any(xt::isnan(output)));
+        assert(!xt::any(xt::isinf(output)));
+        assert(xt::all(output >= 0));
+
+        std::cout << "✓ Test passed" << std::endl;
+        report[case_info.name] = test_report;
+    }
+
+    return report;
+}
+
+std::map<std::string, TestReport> TestSuite::test_batch_normalization_layer() {
+    std::map<std::string, TestReport> report;
+    auto test_cases = get_batchnorm_test_cases();
+
+    for (const auto& case_info : test_cases) {
+        std::cout << "\nRunning test: " << case_info.name << std::endl;
+
+        BatchNormalizationLayer layer(case_info.input_shape[3]);  // Pass number of channels
+        auto test_input = xt::random::randn<double>(case_info.input_shape);
+        auto output = layer.forward(test_input);
+
+        TestReport test_report;
+        test_report.input_shape = std::vector<size_t>(test_input.shape().begin(), test_input.shape().end());
+        test_report.output_shape = std::vector<size_t>(output.shape().begin(), output.shape().end());
+        test_report.expected_shape = case_info.input_shape;
+        test_report.min_output = xt::amin(output)();
+        test_report.max_output = xt::amax(output)();
+        test_report.mean_output = calculate_mean(output);
+
+        // Assertions
+        assert(output.shape() == xt::xarray<double>::shape_type(test_report.expected_shape.begin(), test_report.expected_shape.end()));
         assert(!xt::any(xt::isnan(output)));
         assert(!xt::any(xt::isinf(output)));
         assert(xt::all(output >= 0));

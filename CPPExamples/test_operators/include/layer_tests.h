@@ -17,6 +17,7 @@ class MaxPoolingLayer;
 class DenseLayer;
 class ReLULayer;
 class SoftmaxLayer;
+class BatchNormalizationLayer;
 
 
 struct TestReport {
@@ -43,6 +44,7 @@ class TestSuite {
         static std::map <std::string, TestReport> test_dense_layer();
         static std::map <std::string, TestReport> test_relu_layer();
         static std::map <std::string, TestReport> test_softmax_layer();
+        static std::map <std::string, TestReport> test_batch_normalization_layer();
 
     private:
 
@@ -85,11 +87,18 @@ class TestSuite {
             std::vector<size_t> input_shape;  // {batch_size, height, width, channels}
         };
 
+
+        struct BatchNormTestCase {
+            std::string name;
+            std::vector<size_t> input_shape;
+        };
+
         static std::vector <ConvTestCase> get_conv_test_cases();
         static std::vector <PoolTestCase> get_pool_test_cases();
         static std::vector <DenseTestCase> get_dense_test_cases();
         static std::vector <ReLUTestCase> get_relu_test_cases();
         static std::vector <SoftmaxTestCase> get_softmax_test_cases();
+        static std::vector <BatchNormTestCase> get_batchnorm_test_cases();
 };
 
 template <typename T>

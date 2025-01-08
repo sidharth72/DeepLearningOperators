@@ -2495,5 +2495,666 @@
         },
         "tests_passed": true,
         "timestamp": "2025-01-07 19:22:41"
+    },
+    {
+        "execution_time": "0.015042 seconds",
+        "layer_type": "dense",
+        "results": {
+            "Basic dense with ReLU": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.1770882249725717,
+                "mean_output": -0.006084469950666092,
+                "min_output": -0.11874848169708695,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with Softmax": {
+                "expected_shape": [
+                    4,
+                    10
+                ],
+                "input_shape": [
+                    4,
+                    128
+                ],
+                "max_output": 0.2526088846537078,
+                "mean_output": 0.012577910886500085,
+                "min_output": -0.24897973069175627,
+                "output_shape": [
+                    4,
+                    10
+                ]
+            },
+            "Dense with custom biases": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.11023130503029083,
+                "mean_output": -0.007442064578537899,
+                "min_output": -0.2231626661971867,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Dense with custom weights": {
+                "expected_shape": [
+                    1,
+                    32
+                ],
+                "input_shape": [
+                    1,
+                    64
+                ],
+                "max_output": 0.13155849097712635,
+                "mean_output": 0.004343841190764804,
+                "min_output": -0.19711770070378518,
+                "output_shape": [
+                    1,
+                    32
+                ]
+            },
+            "Large dense layer": {
+                "expected_shape": [
+                    8,
+                    256
+                ],
+                "input_shape": [
+                    8,
+                    512
+                ],
+                "max_output": 0.8295023967309109,
+                "mean_output": 0.007555301252312052,
+                "min_output": -0.806248536860986,
+                "output_shape": [
+                    8,
+                    256
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:06:06"
+    },
+    {
+        "execution_time": "0.023516 seconds",
+        "layer_type": "batch_norm",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.108846450191185,
+                "mean_output": 0.023796308884548367,
+                "min_output": -2.559109646032475,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028366515659399,
+                "mean_output": -0.0030451143725999386,
+                "min_output": -3.917367633762507,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961924764165876,
+                "mean_output": 0.0036554868225325225,
+                "min_output": -4.1323032258603,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492613221738945,
+                "mean_output": -0.025087376125276683,
+                "min_output": -3.204621770947247,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044780435095716,
+                "mean_output": 0.022255616670624305,
+                "min_output": -3.315270424214815,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:06:12"
+    },
+    {
+        "execution_time": "0.021032 seconds",
+        "layer_type": "batch_norm",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.108846450191185,
+                "mean_output": 0.023796308884548367,
+                "min_output": -2.559109646032475,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028366515659399,
+                "mean_output": -0.0030451143725999386,
+                "min_output": -3.917367633762507,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961924764165876,
+                "mean_output": 0.0036554868225325225,
+                "min_output": -4.1323032258603,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492613221738945,
+                "mean_output": -0.025087376125276683,
+                "min_output": -3.204621770947247,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044780435095716,
+                "mean_output": 0.022255616670624305,
+                "min_output": -3.315270424214815,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:06:25"
+    },
+    {
+        "execution_time": "0.011257 seconds",
+        "layer_type": "softmax",
+        "results": {
+            "Basic classification test": {
+                "expected_shape": [
+                    1,
+                    10
+                ],
+                "input_shape": [
+                    1,
+                    10
+                ],
+                "max_output": 0.252037375935916,
+                "mean_output": 0.1,
+                "min_output": 0.013500498888004095,
+                "output_shape": [
+                    1,
+                    10
+                ]
+            },
+            "Binary classification": {
+                "expected_shape": [
+                    1,
+                    2
+                ],
+                "input_shape": [
+                    1,
+                    2
+                ],
+                "max_output": 0.7505351832871936,
+                "mean_output": 0.5000000000000001,
+                "min_output": 0.24946481671280654,
+                "output_shape": [
+                    1,
+                    2
+                ]
+            },
+            "Large number of classes": {
+                "expected_shape": [
+                    1,
+                    100
+                ],
+                "input_shape": [
+                    1,
+                    100
+                ],
+                "max_output": 0.10476034158816439,
+                "mean_output": 0.010000000000000002,
+                "min_output": 0.00023009904214584152,
+                "output_shape": [
+                    1,
+                    100
+                ]
+            },
+            "single class": {
+                "expected_shape": [
+                    1,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    1
+                ],
+                "max_output": 1.0,
+                "mean_output": 1.0,
+                "min_output": 1.0,
+                "output_shape": [
+                    1,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:06:29"
+    },
+    {
+        "execution_time": "0.023815 seconds",
+        "layer_type": "relu",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.1088569943970756,
+                "mean_output": 0.41265983768238135,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028386657441622,
+                "mean_output": 0.3956598869560203,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961944573740173,
+                "mean_output": 0.40039153243118786,
+                "min_output": 0.0,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492780684386396,
+                "mean_output": 0.379733356668537,
+                "min_output": 0.0,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044795658959832,
+                "mean_output": 0.41843824742969155,
+                "min_output": 0.0,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:06:32"
+    },
+    {
+        "execution_time": "0.021668 seconds",
+        "layer_type": "batch_norm",
+        "results": {
+            "Basic test with small input": {
+                "expected_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "input_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ],
+                "max_output": 2.108846450191185,
+                "mean_output": 0.023796308884548367,
+                "min_output": -2.559109646032475,
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    3
+                ]
+            },
+            "Large feature map": {
+                "expected_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "input_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ],
+                "max_output": 4.028366515659399,
+                "mean_output": -0.0030451143725999386,
+                "min_output": -3.917367633762507,
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    64
+                ]
+            },
+            "Multi-batch large input": {
+                "expected_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "input_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ],
+                "max_output": 3.961924764165876,
+                "mean_output": 0.0036554868225325225,
+                "min_output": -4.1323032258603,
+                "output_shape": [
+                    8,
+                    16,
+                    16,
+                    32
+                ]
+            },
+            "Multiple batch size test": {
+                "expected_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "input_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ],
+                "max_output": 3.3492613221738945,
+                "mean_output": -0.025087376125276683,
+                "min_output": -3.204621770947247,
+                "output_shape": [
+                    4,
+                    8,
+                    8,
+                    3
+                ]
+            },
+            "Single channel input": {
+                "expected_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ],
+                "max_output": 3.044780435095716,
+                "mean_output": 0.022255616670624305,
+                "min_output": -3.315270424214815,
+                "output_shape": [
+                    1,
+                    28,
+                    28,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:17:00"
     }
 ]

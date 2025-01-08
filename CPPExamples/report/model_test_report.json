@@ -222,5 +222,187 @@
         "test_type": "model",
         "tests_passed": true,
         "timestamp": "2025-01-06 10:39:18"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:08:22"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:08:41"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:09:01"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:17:28"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:27:43"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:27:53"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:28:03"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:34:41"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:37:43"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:39:52"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:41:39"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:44:13"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 12:56:23"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:07:57"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:08:17"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:08:23"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:08:30"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:23:17"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:24:02"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:24:34"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:24:43"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 13:24:52"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 14:50:16"
+    },
+    {
+        "error": "",
+        "prediction_correct": false,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 14:50:32"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 15:27:37"
+    },
+    {
+        "error": "",
+        "prediction_correct": true,
+        "test_type": "model",
+        "tests_passed": true,
+        "timestamp": "2025-01-08 15:28:57"
     }
 ]
