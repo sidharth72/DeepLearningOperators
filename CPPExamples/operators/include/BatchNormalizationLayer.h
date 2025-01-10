@@ -11,12 +11,12 @@ public:
                            const std::string& beta_path,
                            const std::string& running_mean_path,
                            const std::string& running_var_path,
-                           double epsilon = 1e-5);
+                           double epsilon = 0.001);
     
     // Constructor for training/testing mode
     BatchNormalizationLayer(size_t num_features, 
-                           double epsilon = 1e-5,
-                           double momentum = 0.1);
+                           double epsilon = 0.001,
+                           double momentum = 0.99);
     
     // Forward pass
     xt::xarray<double> forward(const xt::xarray<double>& input_data, 

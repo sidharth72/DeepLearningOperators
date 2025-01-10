@@ -13,7 +13,7 @@ BatchNormalizationLayer::BatchNormalizationLayer(
     const std::string& running_mean_path,
     const std::string& running_var_path,
     double epsilon)
-    : epsilon(epsilon), momentum(0.1) {
+    : epsilon(epsilon), momentum(0.99) {
     
     // Load pretrained parameters
     gamma = xt::load_npy<float>(gamma_path);

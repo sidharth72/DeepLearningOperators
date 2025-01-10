@@ -11,5 +11,5 @@ public:
     SoftmaxLayer();
     
     // Forward pass
-    xt::xarray<double> forward(const xt::xarray<double>& input_data);
+    xt::xarray<float> forward(const xt::xarray<float>& input_data);
 };

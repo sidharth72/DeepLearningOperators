@@ -6,7 +6,7 @@
 
 SoftmaxLayer::SoftmaxLayer() {}
 
-xt::xarray<double> SoftmaxLayer::forward(const xt::xarray<double>& input_data) {
+xt::xarray<float> SoftmaxLayer::forward(const xt::xarray<float>& input_data) {
     if (input_data.dimension() != 2) {
         throw std::invalid_argument("Input must be 2-dimensional (batch_size x features)");
     }

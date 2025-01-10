@@ -1,6 +1,8 @@
 #include "ModelLoader.h"
 #include <nlohmann/json.hpp>
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include <xtensor/xarray.hpp>
 #include <fstream>
 
@@ -47,6 +49,7 @@ std::vector<LayerInfo> ModelLoader::load_model_layers(
         }
 
         else if (layer_info.type == "batch_normalization") {
+
 
             std::string gamma = base_weights_dir + "/" + model_dir + "/" + 
                                      layer_config["weights"]["gamma"].get<std::string>();
@@ -137,37 +140,47 @@ xt::xarray<float> ModelLoader::preprocess_image(
     const std::string& image_path,
     const json& global_settings
 ) {
-    cv::Mat image = cv::imread(image_path);
+    // Load image
+    cv::Mat image = cv::imread(image_path, cv::IMREAD_COLOR);
     if (image.empty()) {
         throw std::runtime_error("Failed to load image: " + image_path);
     }
 
-    // Resize image
-    cv::Mat resized;
-    cv::resize(image, resized, cv::Size(
-        global_settings["preprocessing"]["input_size"][0],
-        global_settings["preprocessing"]["input_size"][1]
-    ));
+    int height = global_settings["preprocessing"]["input_size"][0];
+    int width = global_settings["preprocessing"]["input_size"][1];
 
-    // Convert BGR to RGB
+    // Convert BGR to RGB first
     cv::Mat rgb_image;
-    cv::cvtColor(resized, rgb_image, cv::COLOR_BGR2RGB);
-    
+    cv::cvtColor(image, rgb_image, cv::COLOR_BGR2RGB);
+
+    // Resize using INTER_AREA for downsampling (similar to PIL's behavior)
+    cv::Mat resized;
+    if (height < image.rows || width < image.cols) {
+        // Use INTER_AREA for downsampling
+        cv::resize(rgb_image, resized, cv::Size(width, height), 0, 0, cv::INTER_AREA);
+    } else {
+        // Use INTER_CUBIC for upsampling
+        cv::resize(rgb_image, resized, cv::Size(width, height), 0, 0, cv::INTER_CUBIC);
+    }
+
     // Convert to float and normalize
     cv::Mat float_img;
-    float normalize_value = global_settings["preprocessing"]["normalization"]["value"];
-    rgb_image.convertTo(float_img, CV_32F, 1.0 / normalize_value);
+    resized.convertTo(float_img, CV_32FC1, 1.0f / 255.0f);
 
-    // Create tensor
-    xt::xarray<float> tensor = xt::zeros<float>({1, 32, 32, 3});
-    for (int h = 0; h < 32; ++h) {
-        for (int w = 0; w < 32; ++w) {
+    // Create tensor with correct size and shape
+    xt::xarray<double> tensor = xt::zeros<float>({1, height, width, 3});
+
+    // Fill the tensor
+    for (int h = 0; h < height; ++h) {
+        for (int w = 0; w < width; ++w) {
             cv::Vec3f pixel = float_img.at<cv::Vec3f>(h, w);
             for (int c = 0; c < 3; ++c) {
                 tensor(0, h, w, c) = pixel[c];
             }
         }
     }
+
+    std::cout << tensor << std::endl;
 
     return tensor;
 }

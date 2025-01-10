@@ -5,7 +5,7 @@
 
 FlattenLayer::FlattenLayer() {}
 
-xt::xarray<double> FlattenLayer::forward(const xt::xarray<double>& input_data) {
+xt::xarray<float> FlattenLayer::forward(const xt::xarray<float>& input_data) {
     // Store input shape
     input_shape = std::vector<size_t>(input_data.shape().begin(), input_data.shape().end());
     

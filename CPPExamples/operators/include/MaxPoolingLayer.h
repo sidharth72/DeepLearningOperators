@@ -12,7 +12,7 @@ public:
                    std::tuple<size_t, size_t> strides = std::make_tuple(0, 0));
 
     // Forward pass
-    xt::xarray<double> forward(const xt::xarray<double>& input_data);
+    xt::xarray<float> forward(const xt::xarray<float>& input_data);
 
     // Get output shape
     std::vector<size_t> get_output_shape(const std::vector<size_t>& input_shape);

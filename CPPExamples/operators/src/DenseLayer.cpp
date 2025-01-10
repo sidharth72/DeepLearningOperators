@@ -13,10 +13,10 @@ DenseLayer::DenseLayer(size_t input_size_, size_t output_size_)
     : input_size(input_size_), output_size(output_size_) {
 
     // Initialize random weights
-    weights = 0.01 * xt::random::randn<double>({input_size, output_size});
+    weights = 0.01 * xt::random::randn<float>({input_size, output_size});
 
     // Initialize biases to zero
-    biases = xt::zeros<double>({output_size});
+    biases = xt::zeros<float>({output_size});
 }
 
 // Constructor for loading pretrained weights and biases
@@ -24,17 +24,17 @@ DenseLayer::DenseLayer(const std::string& weights_path, const std::string& biase
 
     // Load weights
     weights = xt::load_npy<float>(weights_path);
-    //weights = xt::cast<double>(weights_float); // Cast to double if needed
+    //weights = xt::cast<float>(weights_float); // Cast to float if needed
 
     // Load biases
     biases = xt::load_npy<float>(biases_path);
-    //biases = xt::cast<double>(biases_float); // Cast to double if needed
+    //biases = xt::cast<float>(biases_float); // Cast to float if needed
 
     input_size = weights.shape()[0];
     output_size = weights.shape()[1];
 }
 
-void DenseLayer::_validate_input(const xt::xarray<double>& input_data) {
+void DenseLayer::_validate_input(const xt::xarray<float>& input_data) {
     auto shape = input_data.shape();
 
     if (shape.size() != 2) {
@@ -52,11 +52,11 @@ void DenseLayer::_validate_input(const xt::xarray<double>& input_data) {
 }
 
 
-xt::xarray<double> DenseLayer::forward(const xt::xarray<double>& input_data) {
+xt::xarray<float> DenseLayer::forward(const xt::xarray<float>& input_data) {
     _validate_input(input_data);
 
     // Linear transformation
-    xt::xarray<double> linear_output = xt::linalg::dot(input_data, weights);
+    xt::xarray<float> linear_output = xt::linalg::dot(input_data, weights);
     linear_output = linear_output + biases; // W.x + b
 
     return linear_output;

@@ -10,6 +10,6 @@ class ReLULayer {
     public:
         ReLULayer();
         virtual ~ReLULayer() = default;
-        virtual xt::xarray<double> forward(const xt::xarray<double>& input_data);
+        virtual xt::xarray<float> forward(const xt::xarray<float>& input_data);
 };
 

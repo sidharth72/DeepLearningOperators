@@ -13,7 +13,7 @@
 ReLULayer::ReLULayer() {}
 
 
-xt::xarray<double> ReLULayer::forward(const xt::xarray<double>& input_data) {
+xt::xarray<float> ReLULayer::forward(const xt::xarray<float>& input_data) {
     return xt::maximum(input_data, 0.0);
 }
 

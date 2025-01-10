@@ -17,7 +17,7 @@ class ConvolutionLayer {
         void debug_info() const;
 
         // Forward pass
-        xt::xarray<double> forward(const xt::xarray<double>& input_data, const std::string& padding = "same");
+        xt::xarray<float> forward(const xt::xarray<float>& input_data, const std::string& padding = "same");
 
         // helper methods
 
@@ -25,11 +25,11 @@ class ConvolutionLayer {
 
     private:
 
-        xt::xarray<double> _pad_input(const xt::xarray<double>& input_data, const std::string& padding);
-        double _convolve_single(const xt::xarray<double>& input_slice, const xt::xarray<double>& kernel);
+        xt::xarray<float> _pad_input(const xt::xarray<float>& input_data, const std::string& padding);
+        float _convolve_single(const xt::xarray<float>& input_slice, const xt::xarray<float>& kernel);
 
-        xt::xarray<double> filters;
-        xt::xarray<double> biases;
+        xt::xarray<float> filters;
+        xt::xarray<float> biases;
         size_t num_filters;
         size_t kernel_size;
         size_t input_channels;

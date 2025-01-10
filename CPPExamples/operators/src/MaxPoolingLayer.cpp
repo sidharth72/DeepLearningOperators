@@ -20,7 +20,7 @@ MaxPoolingLayer::MaxPoolingLayer(std::tuple<size_t, size_t> pool_size,
 }
 
 // Forward pass implementation
-xt::xarray<double> MaxPoolingLayer::forward(const xt::xarray<double>& input_data) {
+xt::xarray<float> MaxPoolingLayer::forward(const xt::xarray<float>& input_data) {
     auto input_shape = input_data.shape();
     size_t batch_size = input_shape[0];
     size_t input_height = input_shape[1];
@@ -32,7 +32,7 @@ xt::xarray<double> MaxPoolingLayer::forward(const xt::xarray<double>& input_data
 
     // Initialize output tensor with zeros
     std::vector<size_t> output_shape = {batch_size, output_height, output_width, channels};
-    xt::xarray<double> output = xt::zeros<double>(output_shape);
+    xt::xarray<float> output = xt::zeros<float>(output_shape);
 
     // Perform max pooling
     for (size_t b = 0; b < batch_size; ++b) {

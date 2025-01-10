@@ -1,0 +1,13 @@
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/model_loader.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/convolution_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/maxpooling_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/flatten_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/dense_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/softmax_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/relu_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/batch_normalization_layer.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/main.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/tests.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/onnx_inference.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/ALL_BUILD.dir
+C:/Work/DLOperators/CNN-Operators/CPPExamples/CMakeFiles/ZERO_CHECK.dir

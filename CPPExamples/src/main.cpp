@@ -25,8 +25,6 @@ Prediction predict_single_model(
     
     auto layers = ModelLoader::load_model_layers(model_config, base_weights_dir);
     
-    std::cout << "Loaded " << layers.size() << " layers" << std::endl;
-    
     auto x = input_data;
     auto total_duration = 0;
 
@@ -34,13 +32,16 @@ Prediction predict_single_model(
         auto start_time = std::chrono::high_resolution_clock::now();
         std::cout << "Layer: " << layer_info.name << std::endl;
         if (layer_info.type == "convolution") {
+            
             auto conv_layer = std::static_pointer_cast<ConvolutionLayer>(layer_info.layer);
             x = conv_layer->forward(x, "same");
+
         }
 
         else if(layer_info.type == "batch_normalization") {
             auto batch_norm_layer = std::static_pointer_cast<BatchNormalizationLayer>(layer_info.layer);
             x = batch_norm_layer->forward(x);
+
         }
 
         else if(layer_info.type == "relu_activation") {
@@ -118,35 +119,25 @@ int main(int argc, char* argv[]) {
         std::cout << "Loading configuration from: " << config_path << std::endl;
         json config = ModelLoader::load_config(config_path);
 
-        std::cout << "Entering this line" << std::endl;
-        
+
+
         // Extract settings
         json global_settings = config["global_settings"];
         json models_config = config["models"];
 
-        std::cout << "Entering this line" << std::endl;
-
         std::string base_weights_dir = global_settings["base_weights_directory"];
         std::vector<std::string> class_names = ModelLoader::get_class_names(global_settings);
         
-        std::cout << "Entering this line" << std::endl;
-
         // Load and preprocess image
         auto input_data = ModelLoader::preprocess_image(imagePath, global_settings);
-
-        std::cout << "Entering this line" << std::endl;
 
         std::vector<Prediction> predictions;
             // Process single model
         auto model_config = models_config[0];
 
-        std::cout << "Entering this line" << std::endl;
-
         auto prediction = predict_single_model(
             input_data, model_config, base_weights_dir, class_names
         );
-
-        std::cout << "Entering this line" << std::endl;
 
         predictions.push_back(prediction);
         // Print individual model predictions

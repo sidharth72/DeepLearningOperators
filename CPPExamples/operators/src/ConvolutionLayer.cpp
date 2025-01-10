@@ -11,9 +11,15 @@
 ConvolutionLayer::ConvolutionLayer(const std::string& filters_path, const std::string& biases_path) {
     filters = xt::load_npy<float>(filters_path);
     biases = xt::load_npy<float>(biases_path);
+
     // Ensure filters are in the correct format: [height, width, in_channels, out_channels]
     if (filters.dimension() != 4) {
         throw std::runtime_error("Filters must be 4-dimensional");
+    }
+
+    // printing the filters shape
+    for (size_t i = 0; i < filters.shape().size(); ++i) {
+        std::cout << filters.shape()[i] << " ";
     }
     
     num_filters = filters.shape()[3];
@@ -36,10 +42,10 @@ ConvolutionLayer::ConvolutionLayer(size_t num_filters, size_t kernel_size, size_
     this->input_channels = input_channels;
     
     // Initialize filters with random values
-    filters = xt::random::randn<double>({kernel_size, kernel_size, input_channels, num_filters});
+    filters = xt::random::randn<float>({kernel_size, kernel_size, input_channels, num_filters});
     
     // Initialize biases with random values
-    biases = xt::random::randn<double>({num_filters});
+    biases = xt::random::randn<float>({num_filters});
 }
 
 void ConvolutionLayer::debug_info() const {
@@ -68,7 +74,7 @@ void ConvolutionLayer::debug_info() const {
 
 
 // Padding input (same, valid)
-xt::xarray<double> ConvolutionLayer::_pad_input(const xt::xarray<double>& input_data, 
+xt::xarray<float> ConvolutionLayer::_pad_input(const xt::xarray<float>& input_data, 
                                                const std::string& padding) {
     if (padding == "valid") {
         return input_data;
@@ -87,7 +93,7 @@ xt::xarray<double> ConvolutionLayer::_pad_input(const xt::xarray<double>& input_
     return xt::pad(input_data, pad_width, xt::pad_mode::constant, 0.0);
 }
 
-xt::xarray<double> ConvolutionLayer::forward(const xt::xarray<double>& input_data,
+xt::xarray<float> ConvolutionLayer::forward(const xt::xarray<float>& input_data,
                                            const std::string& padding) {
     // Validate input dimensions
     if (input_data.dimension() != 4) {
@@ -115,7 +121,7 @@ xt::xarray<double> ConvolutionLayer::forward(const xt::xarray<double>& input_dat
 
     // Initialize output tensor
     std::vector<size_t> output_shape = {batch_size, output_height, output_width, num_filters};
-    xt::xarray<double> output = xt::zeros<double>(output_shape);
+    xt::xarray<float> output = xt::zeros<float>(output_shape);
 
     // Perform convolution Operation, 
     // For each batch, each filters, we take each of the single value, do the convolution
@@ -126,7 +132,7 @@ xt::xarray<double> ConvolutionLayer::forward(const xt::xarray<double>& input_dat
         for (size_t h = 0; h < output_height; ++h) {
             for (size_t w = 0; w < output_width; ++w) {
                 for (size_t f = 0; f < num_filters; ++f) {
-                    double conv_sum = 0.0;
+                    float conv_sum = 0.0;
                     
                     // Iterate over the kernel dimensions
                     for (size_t kh = 0; kh < kernel_size; ++kh) {

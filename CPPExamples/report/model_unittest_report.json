@@ -3156,5 +3156,81 @@
         },
         "tests_passed": true,
         "timestamp": "2025-01-08 12:17:00"
+    },
+    {
+        "execution_time": "0.009499 seconds",
+        "layer_type": "softmax",
+        "results": {
+            "Basic classification test": {
+                "expected_shape": [
+                    1,
+                    10
+                ],
+                "input_shape": [
+                    1,
+                    10
+                ],
+                "max_output": 0.25203737616539,
+                "mean_output": 0.1,
+                "min_output": 0.013500497676432133,
+                "output_shape": [
+                    1,
+                    10
+                ]
+            },
+            "Binary classification": {
+                "expected_shape": [
+                    1,
+                    2
+                ],
+                "input_shape": [
+                    1,
+                    2
+                ],
+                "max_output": 0.7505351901054382,
+                "mean_output": 0.5,
+                "min_output": 0.24946480989456177,
+                "output_shape": [
+                    1,
+                    2
+                ]
+            },
+            "Large number of classes": {
+                "expected_shape": [
+                    1,
+                    100
+                ],
+                "input_shape": [
+                    1,
+                    100
+                ],
+                "max_output": 0.10476034134626389,
+                "mean_output": 0.01,
+                "min_output": 0.00023009904543869197,
+                "output_shape": [
+                    1,
+                    100
+                ]
+            },
+            "single class": {
+                "expected_shape": [
+                    1,
+                    1
+                ],
+                "input_shape": [
+                    1,
+                    1
+                ],
+                "max_output": 1.0,
+                "mean_output": 1.0,
+                "min_output": 1.0,
+                "output_shape": [
+                    1,
+                    1
+                ]
+            }
+        },
+        "tests_passed": true,
+        "timestamp": "2025-01-10 12:39:52"
     }
 ]

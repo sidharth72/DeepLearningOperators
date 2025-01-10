@@ -176,6 +176,11 @@ target_include_directories(onnx_inference PRIVATE
     ${COMMON_INCLUDE_DIRS}
 )
 
+# Add this near the top of CMakeLists.txt, after project() declaration
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 # =================================================================
 # Configuration Summary
 # =================================================================

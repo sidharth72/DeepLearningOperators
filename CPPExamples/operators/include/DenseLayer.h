@@ -12,7 +12,7 @@ public:
     DenseLayer(size_t input_size, size_t output_size);
 
     // Forward pass
-    xt::xarray<double> forward(const xt::xarray<double>& input_data);
+    xt::xarray<float> forward(const xt::xarray<float>& input_data);
 
     // Getters
     size_t get_input_size() const { return input_size; }
@@ -22,11 +22,11 @@ private:
     // Layer parameters
     size_t input_size;
     size_t output_size;
-    xt::xarray<double> weights;
-    xt::xarray<double> biases;
+    xt::xarray<float> weights;
+    xt::xarray<float> biases;
 
     // Helper functions
-    void _validate_input(const xt::xarray<double>& input_data);
+    void _validate_input(const xt::xarray<float>& input_data);
 };
 
 #endif // DENSE_LAYER_H
